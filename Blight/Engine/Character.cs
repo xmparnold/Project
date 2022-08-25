@@ -11,8 +11,11 @@ public class Character
     public int Experience { get; set; }
     public int CraftingLevel { get; set; }
     public int CraftingExperience { get; set; }
+    public int Gold { get; set; }
     public List<Ability> Abilities { get; set; } = new List<Ability>();
     public List<Ability> CurrentAbilities { get; set; } = new List<Ability>();
     public List<PassiveAbility> PassiveAbilities { get; set; } = new List<PassiveAbility>();
     public List<PassiveAbility> CurrentPassiveAbilities { get; set; } = new List<PassiveAbility>();
+    public Inventory CharacterInventory { get; set; }
+    
 }
