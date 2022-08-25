@@ -3,14 +3,18 @@ namespace Blight.Engine;
 
 public class DropTable
 {
-    public int DropTableId { get; set; }
+    //public int DropTableId { get; set; }
     public string? DropTableName { get; set; }
     public List<Drop> Drops { get; set; } = new List<Drop>();
     public List<Drop> GuarenteedDrops { get; set; } = new List<Drop>();
 
+    public DropTable(string dropTableName)
+    {
+        DropTableName = dropTableName;
+    }
     public DropTable(int dropTableId, string dropTableName)
     {
-        DropTableId = dropTableId;
+        //DropTableId = dropTableId;
         DropTableName = dropTableName;
     }
 
@@ -54,7 +58,7 @@ public class DropTable
         Drops.Remove(drop);
     }
 
-    
+
 
 
 }

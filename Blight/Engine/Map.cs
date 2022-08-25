@@ -2,7 +2,7 @@ namespace Blight.Engine;
 
 public class Map
 {
-    public int MapId { get; set; }
+    public int? MapId { get; set; }
     public int PlayerX { get; set; }
     public int PlayerY { get; set; }
     public bool PlayerOnMap { get; set; }
@@ -20,16 +20,21 @@ public class Map
     public Map(int mapId)
     {
         MapId = mapId;
+        AssignIndex();
     }
 
-    public Map(int mapId, int startX, int startY)
+
+    public Map(int startX, int startY)
     {
-        MapId = mapId;
         StartX = startX;
         StartY = startY;
         HasStartPoint = true;
+        PlayerX = startX;
+        PlayerY = startY;
+        AssignIndex();
     }
 
+    
 
     public void AssignIndex()
     {

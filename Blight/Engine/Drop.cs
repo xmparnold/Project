@@ -3,7 +3,7 @@ namespace Blight.Engine;
 
 public class Drop
 {
-    public int DropId { get; set; }
+    //public int DropId { get; set; }
     public bool ItemDrop { get; set; }
     public bool GoldDrop { get; set; }
     public int ItemId { get; set; }
