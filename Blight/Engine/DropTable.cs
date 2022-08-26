@@ -58,6 +58,13 @@ public class DropTable
         Drops.Remove(drop);
     }
 
+    public Item RollDrop()
+    {
+        Random rand = new Random();
+        int roll = rand.Next(0,Drops.Count());
+        return Drops[roll].Item;
+    }
+
 
 
 
