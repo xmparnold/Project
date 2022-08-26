@@ -139,5 +139,63 @@ public class Game
         }
     }
 
+    public void AddItem(Item item)
+    {
+        PlayerCharacter.CharacterInventory.AddItem(item);
+    }
+
+    public void AddItems(Item[] items)
+    {
+        foreach (Item item in items)
+        {
+            AddItem(item);
+        }
+    }
+
+    public void EnterDungeon(int dungeonIdx)
+    {
+        DungeonIn = Dungeons[dungeonIdx];
+        PlayerLocation = 1;
+        DungeonX = Dungeons[dungeonIdx].Map.StartX;
+        DungeonY = Dungeons[dungeonIdx].Map.StartY;
+    }
+
+    public void EnterTown()
+    {
+        PlayerLocation - 0;
+        DungeonIn = null;
+    }
+
+    public void KillMonster(Monster monster)
+    {
+        int numGuaranteedDrops = monster.DropTable.GuarenteedDrops.Count();
+        Item[] drops = new Item[numGuaranteedDrops + 1];
+        Item rolledItem = monster.DropTable.Roll();
+
+        // for (int x = 0; x < numGuaranteedDrops; x++)
+        // {
+        //     drops[x] = monster.DropTable.GuarenteedDrops[x];
+        // }
+        int index = 0;
+
+        while (index < numGuaranteedDrops)
+        {
+            drops[index] = monster.DropTable.GuarenteedDrops[index];
+            index++;
+        }
+        drops[index] = monster.DropTable.Roll();
+        AddItems(drops);
+    }
+
+    public void AddGold(int amount)
+    {
+        PlayerCharacter.Gold += amount;
+    }
+
+    public void SpendGold(int amount)
+    {
+        PlayerCharacter.Gold -= amount;
+    }
+
 
 }
